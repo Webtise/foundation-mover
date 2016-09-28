@@ -1,0 +1,24 @@
+{
+  "name": "foundation-mover",
+  "authors": [
+    "Richard Jesudason <richard@webtise.com>"
+  ],
+  "description": "Moves DOM elements based on Foundation breakpoints",
+  "main": "js/foundation.mover.js",
+  "keywords": [
+    "foundation",
+    "mover"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation-sites": ">= 6.0.0"
+  },
+  "license": "MIT",
+  "private": true
+}
