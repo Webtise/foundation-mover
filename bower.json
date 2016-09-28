@@ -20,6 +20,5 @@
   "dependencies": {
     "foundation-sites": ">= 6.0.0"
   },
-  "license": "MIT",
-  "private": true
+  "license": "MIT"
 }
