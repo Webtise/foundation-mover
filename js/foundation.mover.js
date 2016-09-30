@@ -128,7 +128,7 @@
             targetsToMove = {};
 
         $.each(this.targets, function(id) {
-            if(self._shouldMove(this, breakpoint)) {
+            if(self._shouldMove(this, id, breakpoint)) {
                 targetsToMove[id] = this;
             }
         });
@@ -137,7 +137,11 @@
     };
 
     // Check wether target should be moved
-    Mover.prototype._shouldMove = function(target, breakpoint) {
+    Mover.prototype._shouldMove = function(target, id, breakpoint) {
+        // Check target is not already in element
+        if(this.$element.find($('#' . id).length > 0)) {
+            return false;
+        }
         // Check target breakpoint size matches breakpoint
         if(target.breakpoint.size == breakpoint) {
             return true;
