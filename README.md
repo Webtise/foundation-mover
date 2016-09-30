@@ -13,12 +13,12 @@ Target elements are appended to the container element.
 <img id="image" src="image.jpg" />
 
 <!-- Container element -->
-<div class="container" data-mover data-mover-target="image:large;"></div>
+<div class="container" data-mover data-mover-targets="image:large;"></div>
 ```
 #### @breakpoint == 'large'
 ```html
 <!-- Container element -->
-<div class="container" data-mover data-mover-target="image:large;">
+<div class="container" data-mover data-mover-targets="image:large;">
   <!-- Target element -->
   <img id="image" src="image.jpg" />
 </div>
@@ -28,32 +28,32 @@ Target elements are appended to the container element.
 To move an element back and forth you will need two container elements:
 ```html
 <!-- Container element (1) -->
-<div class="container-1" data-mover data-mover-target="image:large down;">
+<div class="container-1" data-mover data-mover-targets="image:medium down;">
   <!-- Target element -->
   <img id="image" src="image.jpg" />
 </div>
 
 <!-- Container element (2) -->
-<div class="container-2" data-mover data-mover-target="image:large up;"></div>
+<div class="container-2" data-mover data-mover-targets="image:large up;"></div>
 ```
-#### @breakpoint <= 'large'
+#### @breakpoint <= 'medium'
 ```html
 <!-- Container element (1) -->
-<div class="container-1" data-mover data-mover-target="image:large down;">
+<div class="container-1" data-mover data-mover-targets="image:medium down;">
   <!-- Target element -->
   <img id="image" src="image.jpg" />
 </div>
 
 <!-- Container element (2) -->
-<div class="container-2" data-mover data-mover-target="image:large up;"></div>
+<div class="container-2" data-mover data-mover-targets="image:large up;"></div>
 ```
 #### @breakpoint >= 'large'
 ```html
 <!-- Container element (1) -->
-<div class="container-1" data-mover data-mover-target="image:large down;"></div>
+<div class="container-1" data-mover data-mover-targets="image:medium down;"></div>
 
 <!-- Container element (2) -->
-<div class="container-2" data-mover data-mover-target="image:large up;">
+<div class="container-2" data-mover data-mover-targets="image:large up;">
   <!-- Target element -->
   <img id="image" src="image.jpg" />
 </div>
@@ -67,7 +67,7 @@ You can move multiple elements, even at different breakpoints:
 <p id="paragraph">This is a pragraph!</p>
 
 <!-- Container element -->
-<div class="container" data-mover data-mover-target="image:large; paragraph:xlarge"></div>
+<div class="container" data-mover data-mover-targets="image:large; paragraph:xlarge"></div>
 ```
 #### @breakpoint == 'large'
 ```html
@@ -75,7 +75,7 @@ You can move multiple elements, even at different breakpoints:
 <p id="paragraph">This is a pragraph!</p>
 
 <!-- Container element -->
-<div class="container" data-mover data-mover-target="image:large; paragraph:xlarge">
+<div class="container" data-mover data-mover-targets="image:large; paragraph:xlarge">
   <!-- Target element (1) -->
   <img id="image" src="image.jpg" />
 </div>
@@ -83,7 +83,7 @@ You can move multiple elements, even at different breakpoints:
 #### @breakpoint == 'xlarge'
 ```html
 <!-- Container element -->
-<div class="container" data-mover data-mover-target="image:large; paragraph:xlarge">
+<div class="container" data-mover data-mover-targets="image:large; paragraph:xlarge">
   <!-- Target element (1) -->
   <img id="image" src="image.jpg" />
   
@@ -92,7 +92,8 @@ You can move multiple elements, even at different breakpoints:
 </div>
  ```
 ## Events
-Events are triggered before and after a target is moved:
+Events are triggered before and after a container element moves a target element:
+Both the event and the target element being moved are passed through as arguments.
 ```javascript
 // Example jQuery listener (before target is moved)
 $(document).on('before_move.zf.mover', function(event, target) {
