@@ -160,11 +160,11 @@
     Mover.prototype._moveTarget = function(id) {
         var $target = $('#' +  id);
 
-        this.$element.trigger('after_move.zf.mover', $target);
+        this.$element.trigger('before_move.zf.mover', $target);
 
         $target.detach().appendTo(this.$element);
 
-        this.$element.trigger('before_move.zf.mover', $target);
+        this.$element.trigger('after_move.zf.mover', $target);
     };
 
     // Watch media query changes and check if we need to move the element
